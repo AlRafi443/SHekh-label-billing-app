@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shekh Label & Accessories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-section">
+        <div class="login-container">
+            <h2>Login to Shekh Label & Accessories</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <div id="username-error" class="error-message" style="display: none;"></div>
+                <input type="password" id="password" placeholder="Password" required>
+                <div id="password-error" class="error-message" style="display: none;"></div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <header id="main-header" style="display: none;">
+        <h1>Shekh Label & Accessories</h1>
+        <nav>
+            <button id="customers-btn">Customers</button>
+            <button id="invoices-btn">Invoices</button>
+            <button id="payments-btn">Payments</button>
+            <button id="reports-btn">Reports</button>
+        </nav>
+    </header>
+    <main id="main-content" style="display: none;">
+        <section id="customers-section" class="section">
+            <h2>Customer Management</h2>
+            <form id="customer-form">
+                <input type="text" id="customer-name" placeholder="Customer Name" required>
+                <input type="email" id="customer-email" placeholder="Email" required>
+                <button type="submit">Add Customer</button>
+            </form>
+            <ul id="customer-list"></ul>
+        </section>
+        <section id="invoices-section" class="section hidden">
+            <h2>Invoice Generation</h2>
+            <form id="invoice-form">
+                <select id="invoice-customer" required>
+                    <option value="">Select Customer</option>
+                </select>
+                <input type="number" id="invoice-amount" placeholder="Amount" required>
+                <textarea id="invoice-description" placeholder="Description"></textarea>
+                <button type="submit">Generate Invoice</button>
+            </form>
+            <ul id="invoice-list"></ul>
+        </section>
+        <section id="payments-section" class="section hidden">
+            <h2>Payment Tracking</h2>
+            <form id="payment-form">
+                <select id="payment-invoice" required>
+                    <option value="">Select Invoice</option>
+                </select>
+                <input type="number" id="payment-amount" placeholder="Payment Amount" required>
+                <input type="date" id="payment-date" required>
+                <button type="submit">Record Payment</button>
+            </form>
+            <ul id="payment-list"></ul>
+        </section>
+        <section id="reports-section" class="section hidden">
+            <h2>Reports</h2>
+            <p>Total Invoices: <span id="total-invoices">0</span></p>
+            <p>Total Payments: <span id="total-payments">0</span></p>
+            <p>Outstanding Balance: <span id="outstanding-balance">0</span></p>
+            <h3>Invoice Details</h3>
+            <table id="invoice-report-table" border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Product Name</th>
+                        <th>Payment Status</th>
+                        <th>Due Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="invoice-report-body">
+                    <!-- Report rows will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
